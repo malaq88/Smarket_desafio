@@ -1,0 +1,22 @@
+# Angular
+
+$> sudo apt-get install npm
+$> npm install -g @angular/cli
+$> ng new members-frontend
+$> cd members-frontend
+$> ng serve
+
+Django
+
+$> sudo apt-get install virtualenvwrapper
+$> virtualenvnew --python="/usr/bin/python3" smarket
+$> pip3 install django
+$> pip3 install djangorestframework
+$> startproject members-backend
+$> manage migrate
+$> manage createsuperuser
+$> manage createsuperuser
+$> startapp core
+
+$> pip3 install Pillow
+$> manage makemigrations
