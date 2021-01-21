@@ -15,4 +15,15 @@ export class ApiService {
     return this.http.get(this.baseUrl + 'members/',
     {headers: this.httpHeaders});
   };
+
+  // getMember(id) : Observable<any> {
+  //   return this.http.get(this.baseUrl + 'memberassigs/' + id + '/',
+  //   {headers: this.httpHeaders});
+  // };
+
+  getMember(id) : Observable<any> {
+    return this.http.get(this.baseUrl + 'members/' + id + '/',
+    {headers: this.httpHeaders});
+  };
+
 }

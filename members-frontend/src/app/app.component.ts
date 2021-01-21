@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'members-front';
 
+  selected_member= {};
+
   members = [
     {name: 'Member 01', id: 1, surname: 'ciclano', photo: 'http://www.minhaap.com/photo.png'},
     {name: 'Member 02', id: 2, surname: 'ciclano', photo: 'http://www.minhaap.com/photo.png'},
@@ -28,7 +30,19 @@ export class AppComponent {
         this.members = data
       },
       error => {
-        console.log("Aconteceu um erro");
+        console.log("Erro identificado: ", error.message);
+      }
+    );
+  };
+
+  memberClicked = (member) => {
+    this.api.getMember(member.id).subscribe(
+      data => {
+        console.log(data)
+        this.selected_member = data; 
+      },
+      error => {
+        console.log("Erro identificado: ", error.message);
       }
     );
   };
