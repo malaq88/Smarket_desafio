@@ -20,7 +20,7 @@ export class AppComponent {
     {name: 'Member 03', id: 3, surname: 'ciclano', photo: 'http://www.minhaap.com/photo.png'},
   ];
 
-  constructor(private api:ApiService) {
+  constructor(private api:ApiService, private router: Router) {
     this.getMembers();
   }
 
@@ -35,15 +35,16 @@ export class AppComponent {
     );
   };
 
-  memberClicked = (member) => {
-    this.api.getMember(member.id).subscribe(
-      data => {
-        console.log(data)
-        this.selected_member = data; 
-      },
-      error => {
-        console.log("Erro identificado: ", error.message);
-      }
-    );
+  memberClicked = (member: any) => {
+    this.router.navigate(['member-detail', member.id]);
   };
+
+  homeClicked = () => {
+    this.router.navigate(['/']);
+  };
+
+  memberAssigsClicked = (member: any) => {
+    this.router.navigate(['assigs-detail', member.id]);
+  };
+  
 }

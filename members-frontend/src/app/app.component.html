@@ -1,18 +1,18 @@
-<h1>Members</h1>
+<h1 (click)="homeClicked()">Home</h1>
 
-<ul>
-  <li *ngFor = "let member of members" (click)="memberClicked(member)">
-      {{ member.id }} - {{  member.name  }} - {{  member.surname  }}
-  </li>
-</ul>
+<h2>Usuários</h2>
 
-
-<!-- <h1>Assigs</h1>
-
- <ul>
-  <li  *ngFor = "let selected of selected_member.assigs">
-    <p>{{  selected.id  }} - {{  selected.desc  }} - {{  selected.status  }}</p>
-  </li> 
- </ul> -->
+<table>
+  <tr>
+    <th>#</th>
+    <th>Usuário</th>
+    <th>Ações</th>
+  </tr>
+  <tr *ngFor = "let member of members">
+    <td>{{ member.id }}</td>
+    <td (click)="memberAssigsClicked(member)">{{  member.name  }} {{  member.surname  }}</td>
+    <td (click)="memberClicked(member)">Edit</td>
+  </tr>
+</table>
 
 <router-outlet></router-outlet>

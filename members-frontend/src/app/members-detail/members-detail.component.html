@@ -1,1 +1,16 @@
-<h1>Assigs</h1>
+<h2>Edição de Usuário</h2>
+<!-- Usuario Selecionado: {{ selected_member.name }} {{ selected_member.surname }}
+<p>selected id = {{ selected_id }}</p> -->
+
+
+<label>Nome:</label><br>
+<input type="text" [(ngModel)]="selected_member.name" ><br>
+<label>Sobrenome:</label><br>
+<input type="text" [(ngModel)]="selected_member.surname" ><br>
+<button (click)="update()">Update Member</button>
+
+<!-- 
+<input type="text" [(ngModel)]="selected_member.id" readonly>
+<input type="text" [(ngModel)]="selected_member.name" >
+<input type="text" [(ngModel)]="selected_member.surname" >
+<button (click)="update()">Update Member</button> -->

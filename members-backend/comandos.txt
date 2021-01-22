@@ -7,6 +7,7 @@ $ cd members-frontend
 $ ng serve
 $ ng generate service api
 ng generate component members-detail
+ng generate service api << In folder api
 
 Django
 

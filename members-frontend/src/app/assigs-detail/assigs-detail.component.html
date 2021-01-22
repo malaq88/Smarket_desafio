@@ -1,0 +1,15 @@
+<h2>Tarefas do Usuário: {{ selected_member.name }}</h2>
+<table>
+  <tr>
+    <th>#</th>
+    <th>Descrição</th>
+    <th>Status</th>
+  </tr>
+  <tr *ngFor = "let assig of selected_member.assigs">
+    <td>{{ assig.id }}</td>
+    <td>{{  assig.desc  }}</td>
+    <td (click)="assigClicked(assig)">{{  assig.status  }}</td>
+  </tr>
+</table>
+
+<router-outlet></router-outlet>
