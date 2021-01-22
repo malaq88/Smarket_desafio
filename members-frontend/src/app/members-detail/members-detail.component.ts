@@ -1,6 +1,7 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 import { ApiService } from './api.service';
 
 @Component({
@@ -10,12 +11,19 @@ import { ApiService } from './api.service';
 })
 export class MembersDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private api: ApiService) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private api: ApiService,
+    private router: Router, 
+    private appComponent: AppComponent
+    ) { }
+
+
   selected_member = {};
   selected_id = 0;
   ngOnInit(): void {
     this.route.paramMap.subscribe((param: ParamMap) => {
-      let id = parseInt(param.get('id'));
+      let id = parseInt(param.get('id') || '{}');
       this.selected_id = id;
       this.loadMember(id);
     });
@@ -37,11 +45,36 @@ export class MembersDetailComponent implements OnInit {
     this.api.updateMember(this.selected_member).subscribe(
       data => {
         console.log(data);
-        this.selected_member = data; 
+        this.selected_member = data;
       },
       error => {
         console.log("Erro identificado: ", error.message);
       }
     );
   };
+
+  delete(){
+    this.api.deleteMember(this.selected_id).subscribe(
+      data => {
+        let index;
+
+        this.appComponent.members.forEach((e, i) =>{
+          if (e.id == this.selected_id) {
+            index = i;
+          }
+        });
+
+        this.appComponent.members.splice(index, 1);
+      },
+      error => {
+        console.log("Erro identificado: ", error.message);
+      }
+    );
+  };
+
+
+  newMember(){
+    this.router.navigate(['new-member']);
+  };
+
 }

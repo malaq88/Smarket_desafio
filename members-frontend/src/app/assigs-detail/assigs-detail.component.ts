@@ -1,5 +1,7 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 import { ApiService } from '../members-detail/api.service';
 
 @Component({
@@ -9,13 +11,18 @@ import { ApiService } from '../members-detail/api.service';
 })
 export class AssigsDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private api: ApiService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private api: ApiService,
+    private appComponent: AppComponent,
+    private router: Router, ) { }
+  
   selected_member = {};
   selected_assig = {};
   selected_id = 0;
   ngOnInit(): void {
     this.route.paramMap.subscribe((param: ParamMap) => {
-      let id = parseInt(param.get('id'));
+      let id = parseInt(param.get('id') || '{}');
       this.selected_id = id;
       this.loadAssigs(id);
     });
@@ -45,16 +52,32 @@ export class AssigsDetailComponent implements OnInit {
     );
   };
 
-  updateStatus(){
-    this.api.changeStatusAssign(this.selected_assig).subscribe(
+  updateStatus(assig: any){
+    this.api.changeStatusAssign(assig).subscribe(
       data => {
-        console.log(data);
-        this.selected_assig = data; 
+        assig = data;
+        this.ngOnInit();
       },
       error => {
         console.log("Erro identificado: ", error.message);
       }
     );
   };
+
+  newAssig(){
+    this.router.navigate(['new-assig']);
+  };
+
+  delete(id: any){
+    this.api.deleteAssig(id).subscribe(
+      data => {
+        this.ngOnInit();
+      },
+      error => {
+        console.log("Erro identificado: ", error.message);
+      }
+    );
+  };
+
 
 }

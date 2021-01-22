@@ -19,6 +19,9 @@ export class AppComponent {
     {name: 'Member 02', id: 2, surname: 'ciclano', photo: 'http://www.minhaap.com/photo.png'},
     {name: 'Member 03', id: 3, surname: 'ciclano', photo: 'http://www.minhaap.com/photo.png'},
   ];
+  assigs = [
+    {id: 1, desc: 'foo', status: 'Feito'}
+  ];
 
   constructor(private api:ApiService, private router: Router) {
     this.getMembers();

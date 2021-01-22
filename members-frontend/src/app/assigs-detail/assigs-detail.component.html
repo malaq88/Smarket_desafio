@@ -3,13 +3,19 @@
   <tr>
     <th>#</th>
     <th>Descrição</th>
-    <th>Status</th>
+    <th>Ações</th>
   </tr>
   <tr *ngFor = "let assig of selected_member.assigs">
     <td>{{ assig.id }}</td>
     <td>{{  assig.desc  }}</td>
-    <td (click)="assigClicked(assig)">{{  assig.status  }}</td>
+    <td>
+      <button (click)="updateStatus(assig)">{{ assig.status }}</button>
+      |
+      <button (click)="delete(assig.id)">Exclui</button>
+    </td>
   </tr>
-</table>
+</table><br>
+
+<button (click)="newAssig()">Nova Tarefa</button>
 
 <router-outlet></router-outlet>

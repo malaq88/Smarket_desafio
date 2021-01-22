@@ -11,21 +11,24 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getMember(id: any) : Observable<any> {
-    // return this.http.get(this.baseUrl + 'memberassigs/' + id + '/',
     return this.http.get(this.baseUrl + 'members/' + id + '/',
     {headers: this.httpHeaders});
   };
 
   updateMember(member: any) : Observable<any> {
-    // return this.http.get(this.baseUrl + 'memberassigs/' + id + '/',
     let body = {name: member.name, surname: member.surname};
     return this.http.put(this.baseUrl + 'members/' + member.id + '/', body,
     {headers: this.httpHeaders});
   };
 
+  deleteMember(id: any) : Observable<any> {
+    return this.http.delete(this.baseUrl + 'members/' + id + '/',
+    {headers: this.httpHeaders});
+  };
+  
+
   getMemberAssigs(id: any) : Observable<any> {
     return this.http.get(this.baseUrl + 'memberassigs/' + id + '/',
-    // return this.http.get(this.baseUrl + 'members/' + id + '/',
     {headers: this.httpHeaders});
   };
 
@@ -35,16 +38,21 @@ export class ApiService {
   };
 
   changeStatusAssign(assig: any) : Observable<any> {
-    // return this.http.get(this.baseUrl + 'memberassigs/' + id + '/',
-    if (assig.desc == "Pendente") {
+    console.log(assig.status);
+    if (assig.status == "Pendente") {
       let body = {desc: assig.desc, status: "Feito"};  
       return this.http.put(this.baseUrl + 'assigs/' + assig.id + '/', body,
       {headers: this.httpHeaders});
     } else {
-      let body = {desc: assig.desc, status: "Feito"};
+      let body = {desc: assig.desc, status: "Pendente"};
       return this.http.put(this.baseUrl + 'assigs/' + assig.id + '/', body,
       {headers: this.httpHeaders});
     }
+  };
+
+  deleteAssig(id: any) : Observable<any> {
+    return this.http.delete(this.baseUrl + 'assigs/' + id + '/',
+    {headers: this.httpHeaders});
   };
 
 }

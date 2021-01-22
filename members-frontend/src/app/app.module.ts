@@ -7,12 +7,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { MembersDetailComponent } from './members-detail/members-detail.component';
 import { FormsModule } from '@angular/forms';
 import { AssigsDetailComponent } from './assigs-detail/assigs-detail.component';
+import { NewMemberComponent } from './new-member/new-member.component';
+import { NewAssigComponent } from './new-assig/new-assig.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MembersDetailComponent,
-    AssigsDetailComponent
+    AssigsDetailComponent,
+    NewMemberComponent,
+    NewAssigComponent
   ],
   imports: [
     BrowserModule,

@@ -7,10 +7,7 @@
 <input type="text" [(ngModel)]="selected_member.name" ><br>
 <label>Sobrenome:</label><br>
 <input type="text" [(ngModel)]="selected_member.surname" ><br>
-<button (click)="update()">Update Member</button>
+<button (click)="update()">Update Member</button><br>
+<button (click)="delete()">Delete Member</button><br>
 
-<!-- 
-<input type="text" [(ngModel)]="selected_member.id" readonly>
-<input type="text" [(ngModel)]="selected_member.name" >
-<input type="text" [(ngModel)]="selected_member.surname" >
-<button (click)="update()">Update Member</button> -->
+<button (click)="newMember()">Novo</button>

@@ -5,7 +5,7 @@ table {
   }
   
   td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #000000;
     text-align: left;
     padding: 8px;
   }
@@ -14,6 +14,17 @@ table {
     background-color: #dddddd;
   }
 
+
+  input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
   button {
     width: 25%;
     background-color: #4CAF50;
@@ -27,4 +38,10 @@ table {
   
   button:hover {
     background-color: #45a049;
+  }
+  
+  div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
   }

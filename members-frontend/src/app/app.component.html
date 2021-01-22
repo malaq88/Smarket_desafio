@@ -11,7 +11,9 @@
   <tr *ngFor = "let member of members">
     <td>{{ member.id }}</td>
     <td (click)="memberAssigsClicked(member)">{{  member.name  }} {{  member.surname  }}</td>
-    <td (click)="memberClicked(member)">Edit</td>
+    <td>
+      <button (click)="memberClicked(member)">Editar</button>
+    </td>
   </tr>
 </table>
 
