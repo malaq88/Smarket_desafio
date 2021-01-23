@@ -9,8 +9,8 @@ import { AppComponent } from '../app.component';
 })
 export class NewAssigComponent implements OnInit {
 
-  assig = {};
-  members_select = {};
+  assig;
+  members_select;
 
   constructor(
     private api: ApiService,

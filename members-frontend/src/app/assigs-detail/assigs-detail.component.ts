@@ -17,12 +17,12 @@ export class AssigsDetailComponent implements OnInit {
     private appComponent: AppComponent,
     private router: Router, ) { }
   
-  selected_member = {};
-  selected_assig = {};
+  selected_member;
+  selected_assig;
   selected_id = 0;
   ngOnInit(): void {
     this.route.paramMap.subscribe((param: ParamMap) => {
-      let id = parseInt(param.get('id') || '{}');
+      let id = parseInt(param.get('id')!);
       this.selected_id = id;
       this.loadAssigs(id);
     });

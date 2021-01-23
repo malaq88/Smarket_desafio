@@ -19,11 +19,11 @@ export class MembersDetailComponent implements OnInit {
     ) { }
 
 
-  selected_member = {};
+  selected_member = {id: '', name: '', surname: ''};
   selected_id = 0;
   ngOnInit(): void {
     this.route.paramMap.subscribe((param: ParamMap) => {
-      let id = parseInt(param.get('id') || '{}');
+      let id = parseInt(param.get('id')!);
       this.selected_id = id;
       this.loadMember(id);
     });
@@ -44,6 +44,7 @@ export class MembersDetailComponent implements OnInit {
   update(){
     this.api.updateMember(this.selected_member).subscribe(
       data => {
+        this.ngOnInit();
         console.log(data);
         this.selected_member = data;
       },
@@ -70,11 +71,6 @@ export class MembersDetailComponent implements OnInit {
         console.log("Erro identificado: ", error.message);
       }
     );
-  };
-
-
-  newMember(){
-    this.router.navigate(['new-member']);
   };
 
 }

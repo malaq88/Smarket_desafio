@@ -9,7 +9,7 @@ import { AppComponent } from '../app.component';
 })
 export class NewMemberComponent implements OnInit {
   
-  member = {};
+  member = {name: '', surname: ''};
   
   constructor(
     private api: ApiService,

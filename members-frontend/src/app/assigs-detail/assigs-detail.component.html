@@ -4,15 +4,17 @@
     <th>#</th>
     <th>Descrição</th>
     <th>Ações</th>
+    <!-- <th>Exclui</th> -->
   </tr>
   <tr *ngFor = "let assig of selected_member.assigs">
     <td>{{ assig.id }}</td>
     <td>{{  assig.desc  }}</td>
     <td>
-      <button (click)="updateStatus(assig)">{{ assig.status }}</button>
-      |
+      <button (click)="updateStatus(assig)">{{ assig.status }}</button> |
       <button (click)="delete(assig.id)">Exclui</button>
+    
     </td>
+    <!-- <td (click)="delete(assig.id)">Exclui</td> -->
   </tr>
 </table><br>
 

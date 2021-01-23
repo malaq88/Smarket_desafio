@@ -10,9 +10,11 @@
     <option value="Feito">Feito</option>
 </select><br>
 
-<label>Usuário:</label><br>
+<label>Status:</label><br>
 <select [(ngModel)]="assig.member" name="member_id">
     <option *ngFor = "let member of members_select" [value]="member.id">{{ member.name }}</option>
 </select><br>
 
+
 <button (click)=save()>salvar</button>
+

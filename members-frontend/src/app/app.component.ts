@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'members-front';
 
-  selected_member= {};
+  selected_member;
 
   members = [
     {name: 'Member 01', id: 1, surname: 'ciclano', photo: 'http://www.minhaap.com/photo.png'},
@@ -48,6 +48,10 @@ export class AppComponent {
 
   memberAssigsClicked = (member: any) => {
     this.router.navigate(['assigs-detail', member.id]);
+  };
+
+  newMember(){
+    this.router.navigate(['new-member']);
   };
   
 }
