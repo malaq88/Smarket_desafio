@@ -21,7 +21,7 @@ python3 manage.py runserver
 
 Após instalação dos pacotes pyp3 é necessário criar e migrar o banco de dados:
 
-- pytohon3 manage.py makemigrations
-- pytohon3 manage.py migrate
+- python3 manage.py makemigrations
+- python3 manage.py migrate
 
 O servidor iniciar no seguinte endereço: http://localhost:8000/
